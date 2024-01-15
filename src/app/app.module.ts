@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TopBannerComponent } from './components/top-banner/top-banner.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TopBannerComponent,
-    FooterComponent
+    FooterComponent,
+    PokemonListComponent
   ],
   imports: [
     BrowserModule,
