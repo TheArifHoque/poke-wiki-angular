@@ -8,23 +8,5 @@ import { Router } from '@angular/router';
   styleUrl: './top-banner.component.scss'
 })
 export class TopBannerComponent {
-  searchForm: FormGroup;
-
-  constructor(private formBuilder: FormBuilder, private router: Router) {
-    this.searchForm = this.formBuilder.group({
-      searchTerm: ['',[Validators.required]],
-    });
-  }
-
-  search(): void {
-    if (this.searchForm.valid) {
-      this.router
-      .navigate(['/pokemon-list'], {
-        queryParams: { pokemon: this.searchForm.get('searchTerm')?.value},
-      })
-      .finally(() => {
-        this.searchForm.get('searchTerm')?.setValue;
-      });
-    }
-  }
+  
 }
