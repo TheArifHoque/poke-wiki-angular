@@ -8,9 +8,15 @@ export class SharedDataService {
   private dataSubject = new BehaviorSubject<any>(null);
   data$ = this.dataSubject.asObservable();
 
-  constructor() { }
+  constructor() {
+    const storedData = localStorage.getItem('sharedData');
+    if (storedData) {
+      this.dataSubject.next(JSON.parse(storedData));
+    }
+  }
 
   sendData(data: any) {
+    localStorage.setItem('sharedData', JSON.stringify(data));
     this.dataSubject.next(data);
   }
 }
