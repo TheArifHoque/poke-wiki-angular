@@ -13,7 +13,11 @@
                     </div>
                 </div>
             </div>
-            <button class="button">See Details</button>
+            <button class="button" (click)="viewDetails(pokemon)">See Details</button>
         </div>
+    </div>
+    <div class="button-wrapper">
+        <button class="button" [disabled]="currentPageNo == 0" (click)="loadPreviousPage()">Previous</button>
+        <button class="button" [disabled]="currentPageNo == 65" (click)="loadNextPage()">Next</button>
     </div>
 </div>
