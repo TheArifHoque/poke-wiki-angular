@@ -7,6 +7,7 @@ import { TopBannerComponent } from './components/top-banner/top-banner.component
 import { FooterComponent } from './components/footer/footer.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-de
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
