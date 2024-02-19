@@ -17,7 +17,19 @@
         </div>
     </div>
     <div class="button-wrapper">
-        <button class="button" [disabled]="currentPageNo == 0" (click)="loadPreviousPage()">Previous</button>
-        <button class="button" [disabled]="currentPageNo == 65" (click)="loadNextPage()">Next</button>
+        <button 
+            [ngClass]="pokemonDetails?.length == 1 ? 'hidden' : 'button'" 
+            [disabled]="currentPageNo == 0" 
+            (click)="loadPreviousPage()"
+        >
+            Previous
+        </button>
+        <button 
+            [ngClass]="pokemonDetails?.length == 1 ? 'hidden' : 'button'" 
+            [disabled]="currentPageNo == 65" 
+            (click)="loadNextPage()"
+        >
+            Next
+        </button>
     </div>
 </div>

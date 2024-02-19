@@ -22,8 +22,12 @@ export class PokemonListComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParamMap.subscribe((params: any) => {
-      this.currentPageNo = params.has('page') ? params.get('page') : 0;
-      this.loadAllPokemonDetails();
+      if (params.has('pokemon')) {
+        this.loadSinglePokemonDetails(params.get('pokemon'));
+      } else {
+        this.currentPageNo = params.has('page') ? params.get('page') : 0;
+        this.loadAllPokemonDetails();
+      }
     });
     // this.loadAllPokemonDetails();
   }
@@ -31,6 +35,13 @@ export class PokemonListComponent implements OnInit {
   loadAllPokemonDetails(): void {
     this.pokeApiService.getPokemonDetails(this.currentPageNo).subscribe({
       next: (result) => this.pokemonDetails = result,
+      error: (error) => console.error(error),
+    });
+  }
+
+  loadSinglePokemonDetails(name: string): void {
+    this.pokeApiService.fetchIndividualPokemonDetailsByName(name).subscribe({
+      next: (result) => this.pokemonDetails.splice(0, this.pokemonDetails.length, result),
       error: (error) => console.error(error),
     });
   }
